@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+
+    <style>
+        body {
+            background-color: rgb(233, 122, 233);
+        }
+
+        h1 {
+            background-color: deepskyblue;
+            border: 5px dotted black;
+            text-align: center;
+            font-size: 60px;
+            width: 500px;
+        }
+
+        input[type="text"] {
+
+            background-color: white;
+            border: solid black 5px;
+            font-size: 25px;
+            width: 100%;
+            padding: 13px;
+
+        }
+
+        input[type="button"] {
+            background-color: black;
+            color: white;
+            border: solid black 5px;
+            width: 100%;
+
+            font-size: 60px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <center>
+        <div class="container " style="margin-top: 100px; padding: 10px; border: 5px solid black; width: 800px;">
+            <h1 class="row">TO-DO LIST</h1>
+            <br> <br>
+
+            <div class="row">
+                <form>
+
+                    <div class="input-group">
+                        <input type="text" placeholder="To- Do Items." id="box" style="width: 30vw;">
+                    </div>
+                    <br><br>
+                    <div class="form-group">
+                        <input type="button" value="Add" style="width: 10vw;" onclick="add_item()">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <br> <br>
+
+
+        <div class="row" style="margin:auto; padding: 20px; border: 5px solid black; width: 800px;">
+
+            <ul id="list_item" style="font-size: 30px;">
+
+            </ul>
+        </div>
+    </center>
+
+
+    <script type="text/javascript">
+
+        function add_item() {
+            let item = document.getElementById("box");
+            let list_item = document.getElementById("list_item");
+
+            if (item.value != "") {
+                let make_li = document.createElement("li");
+                make_li.appendChild(document.createTextNode(item.value));
+                list_item.appendChild(make_li);
+                item.value;
+
+                make_li.onclick = function () {
+                    this.parentNode.removeChild(this);
+                }
+            }
+            else {
+                alert(" Plese Add Value To To-DO TextBox.")
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
